@@ -22,7 +22,7 @@
           ];
           rust-toolchain = pkgs.symlinkJoin {
             name = "rust-toolchain";
-            paths = [ pkgs.rustc pkgs.cargo pkgs.cargo-watch pkgs.rust-analyzer pkgs.rustPlatform.rustcSrc ];
+            paths = [ pkgs.rustc pkgs.sea-orm-cli pkgs.cargo pkgs.cargo-watch pkgs.rust-analyzer pkgs.rustPlatform.rustcSrc ];
           };
         in
         {
@@ -52,6 +52,7 @@
               rust-toolchain
             ];
             RUST_BACKTRACE = 1;
+            RUST_SRC_PATH="${pkgs.rustPlatform.rustLibSrc}";
           };
 
           # Add your auto-formatters here.
